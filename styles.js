@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
-    width: '90%',
+    width: '100%',
     maxWidth: 400,
     marginBottom: 20,
   },
@@ -108,6 +108,32 @@ const styles = StyleSheet.create({
     width: 170,
     height: 170,
     alignSelf: 'center',
+  },
+
+  userItem: {
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  userName: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#333',
+   
+  
+  },
+  userEmail: {
+    fontSize: 14,
+    color: '#666',
+  },
+
+  userGender: {
+    fontSize: 14,
+    color: '#666',
   },
 
 });

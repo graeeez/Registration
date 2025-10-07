@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Button, Image } from 'react-native';
-import styles from '../styles';
+
+import styles, { BUTTON_COLOR } from '../styles';
 
 export default function Homepage({navigation}) {
     return(
@@ -16,8 +17,16 @@ export default function Homepage({navigation}) {
             <View style={styles.buttonContainer}>
                 <Button 
                     title="Register"
-                    color="#204438ff" 
                     onPress={() => navigation.navigate('Register')}
+                    color={BUTTON_COLOR}
+                />
+            </View>
+
+            <View style={styles.buttonContainer}>
+                <Button 
+                    title="View Users"
+                    onPress={() => navigation.navigate('UserList')}
+                    color={BUTTON_COLOR}
                 />
             </View>
         </View>

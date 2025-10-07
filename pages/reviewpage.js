@@ -43,12 +43,15 @@ export default function ReviewPage({ route, navigation }) {
                 </View>
             </View>
 
+
+            <View style={{ height: 20 }} />
             <Button
                 title="Go back to edit"
                 onPress={() => navigation.goBack()}
                 color={BUTTON_COLOR}
             />
 
+            <View style={{ height: 20 }} />
             <Button
                 title="Submit"
                 onPress={handleSubmit}
