@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     minWidth: 200,
     borderRadius: 8,
     overflow: 'hidden',
+    color: BUTTON_COLOR,
   },
 
   pageTitle: {
