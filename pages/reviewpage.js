@@ -1,21 +1,36 @@
+
+import { useState } from 'react';
 import { View, Text, Button, Alert } from 'react-native';
 import styles, { BUTTON_COLOR } from '../styles';
 import axios from 'axios';
 
 export default function ReviewPage({ route, navigation }) {
     const { formData } = route.params;
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const handleSubmit = async () => {
+        setLoading(true);
+        setSuccess(false);
+
         try {
-            const response = await axios.post("http://192.168.20.208:8000/registration/api/register/", formData);
-            Alert.alert("Success", "User registered successfully"); 
-                navigation.getBack();
-            
+            await axios.post("http://192.168.30.212:8000/registration/api/register/", formData);
+
+            setSuccess(true);
+            // show success and then go back when user confirms
+            Alert.alert("Success", "User registered successfully", [
+                { text: "OK", onPress: () => navigation.goBack() }
+            ]);
         } catch (error) {
-            Alert.alert("Error", JSON.stringify(error.response?.data || " Something went wrong"));
-            
+            const message = error.response?.data
+                ? JSON.stringify(error.response.data)
+                : error.message || "Something went wrong";
+            Alert.alert("Error", message);
+        } finally {
+            setLoading(false);
         }
     };
+
     return (
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Review Information</Text>

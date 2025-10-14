@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text, Button } from 'react-native';
 import styles, { BUTTON_COLOR } from '../styles';
 import {useState} from 'react';
-import { TextInput } from 'react-native-web';
+import { TextInput } from 'react-native';
 
 export default function RegisterPage({ navigation }) {
 const [formData, setformData] = useState({
