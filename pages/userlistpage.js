@@ -13,7 +13,7 @@ export default function UserListPage({ navigation }) {
             .then(res => setUsers(res.data))
             .catch(err => {
                 console.error(err);
-                Alert.alert('Error', 'Failed to load users');
+                Alert.alert('Error', 'Failed to load users.');
             });
     }, []);
 
