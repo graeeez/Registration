@@ -3,46 +3,50 @@ import styles, { BUTTON_COLOR } from '../styles';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const API_BASE = 'http://192.168.30.212:8000/registration/api';
-
-export default function UserListPage({ navigation }) {
+export default function UserListPage({navigation}) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get(`${API_BASE}/users/`)
-            .then(res => setUsers(res.data))
-            .catch(err => {
+        axios.get("http://127.0.0.1:8000/registration/api/users/")
+            .then((res) => {
+                setUsers(res.data);
+            })
+            .catch((err) => {
                 console.error(err);
                 Alert.alert('Error', 'Failed to load users.');
             });
-    }, []);
+    }, []
+    );
 
     const handleEdit = (user) => {
-        navigation.navigate('EditUser', { user });
-    };
+        navigation.navigate('EditUser', {user});
+    }
 
     const handleDelete = (id) => {
-        Alert.alert(
-            'Confirm Delete',
-            'Are you sure you want to delete this user?',
-            [
-                { text: 'Cancel', style: 'cancel' },
-                {
-                    text: 'Delete',
-                    style: 'destructive',
-                    onPress: async () => {
-                        try {
-                            await axios.delete(`${API_BASE}/users/${id}/`);
-                            setUsers(prev => prev.filter(user => user.id !== id));
-                            Alert.alert('Success', 'User deleted successfully');
-                        } catch (err) {
+        window.alert(
+            "Confirm Delete",
+            "Are you sure you want to delete this user?",
+            (
+                { text: "Cancel", style: "cancel" },
+                { 
+                    text: "Delete",
+                    style: "destructive",
+                    onPress: () => {
+                        axios.delete(`http://127.0.0.1:8000/registration/api/users/${id}/`)
+                        .then(() => {
+                            window.alert("Success", "User deleted successfully");
+                        })
+                        .catch((err) => {
                             console.error(err);
-                            Alert.alert('Error', 'Failed to delete user');
-                        }
-                    }
+                            window.alert("Error", "Failed to delete user");
+                        });
+
+                    },
                 }
-            ]
+            )
         );
+        
+        axios.delete(`http://127.0.0.1:8000/registration/api/users/${id}/`)
     };
 
     return (
@@ -60,10 +64,10 @@ export default function UserListPage({ navigation }) {
                             <Text style={styles.userGender}>Gender: {item.gender}</Text>
 
                             <View style={{ flexDirection: 'row', marginTop: 12 }}>
-                                <View style={{ flex: 1, marginRight: 6 }}>
+                                <View style={{  marginRight: 6 }}>
                                     <Button title="Edit" color='#143f34ff' onPress={() => handleEdit(item)} />
                                 </View>
-                                <View style={{ flex: 1, marginLeft: 6 }}>
+                                <View style={{ flex: 2, marginLeft: 6 }}>
                                     <Button title="Delete" color="red" onPress={() => handleDelete(item.id)} />
                                 </View>
                             </View>

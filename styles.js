@@ -136,6 +136,20 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+  input: {
+    width: '30%',
+    minWidth: 250,   
+    height: 50,
+    backgroundColor: '#fff',
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    marginBottom: 15,
+  },
+  
+
+
 
 });
 

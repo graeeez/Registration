@@ -14,7 +14,7 @@ export default function ReviewPage({ route, navigation }) {
         setSuccess(false);
 
         try {
-            await axios.post("http://192.168.30.212:8000/registration/api/register/", formData);
+            await axios.post("http://127.0.0.1:8000/registration/api/register/", formData);
 
             setSuccess(true);
             // show success and then go back when user confirms
