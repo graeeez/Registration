@@ -14,7 +14,7 @@ export default function ReviewPage({ route, navigation }) {
         setSuccess(false);
 
         try {
-            await axios.post("http://127.0.0.1:8000/registration/api/register/", formData);
+            await axios.post("https://peitel-backend.onrender.com/registration/api/register/", formData);
 
             setSuccess(true);
             // show success and then go back when user confirms

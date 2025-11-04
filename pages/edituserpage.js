@@ -21,7 +21,7 @@ export default function EditUserPage({route, navigation}) {
         }
 
         axios
-            .put(`http://127.0.0.1:8000/registration/api/users/${user.id}/`, {
+            .put(`https://peitel-backend.onrender.com/registration/api/users/${user.id}/`, {
                 first_name: firstname,
                 last_name: lastname,
                 email: user_email,

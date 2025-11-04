@@ -7,7 +7,7 @@ export default function UserListPage({navigation}) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/registration/api/users/")
+        axios.get("https://peitel-backend.onrender.com/registration/api/users/")
             .then((res) => {
                 setUsers(res.data);
             })
@@ -32,7 +32,7 @@ export default function UserListPage({navigation}) {
                     text: "Delete",
                     style: "destructive",
                     onPress: () => {
-                        axios.delete(`http://127.0.0.1:8000/registration/api/users/${id}/`)
+                        axios.delete(`https://peitel-backend.onrender.com/registration/api/users/${id}/`)
                         .then(() => {
                             window.alert("Success", "User deleted successfully");
                         })
@@ -45,8 +45,8 @@ export default function UserListPage({navigation}) {
                 }
             )
         );
-        
-        axios.delete(`http://127.0.0.1:8000/registration/api/users/${id}/`)
+
+        axios.delete(`https://peitel-backend.onrender.com/registration/api/users/${id}/`)
     };
 
     return (
