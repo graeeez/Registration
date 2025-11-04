@@ -21,7 +21,7 @@ export default function EditUserPage({route, navigation}) {
         }
 
         axios
-            .put(`https://peitel-backend.onrender.com/registration/api/users/${user.id}/`, {
+            .put(`https://peitel-backend-86lh.onrender.com/registration/api/users/${user.id}/`, {
                 first_name: firstname,
                 last_name: lastname,
                 email: user_email,
